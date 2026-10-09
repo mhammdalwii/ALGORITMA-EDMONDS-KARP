@@ -1,19 +1,32 @@
-# Edmonds-Karp Max Flow Algorithm Analysis 
+# Analisis dan Implementasi Algoritma Edmonds-Karp (Maximum Flow)
 
-Repositori ini berisi implementasi algoritma Edmonds-Karp dari awal (*from scratch*) untuk menghitung aliran maksimum (*Maximum Flow*) pada graf berarah, sebagai bagian dari Tugas Analisis Algoritma Magister Teknik Informatika (Semester Ganjil 2026).
+Repositori ini berisi implementasi algoritma Edmonds-Karp dari awal (*from scratch*) untuk menghitung aliran maksimum (*Maximum Flow*) pada jaringan graf berarah. 
 
-**Oleh:** Muhammad Alwi (NIM: D082261023)
+Proyek ini disusun sebagai bagian dari **Tugas Analisis Algoritma Komputasi, Magister Teknik Informatika (Semester Ganjil 2026)**.
 
-## Struktur Repositori
-- `edmonds_karp.py`: Kode program utama yang memuat implementasi inti algoritma Edmonds-Karp (tanpa menggunakan *library*), 3 kasus uji manual, serta fungsi eksperimen kinerja (pengujian runtime $O(V \cdot E^2)$).
-- `hasil_eksperimen.png`: Plot grafik hasil dari skenario pengujian dengan berbagai ukuran input (*node* $V$ dari 50 hingga 800) berskala.
+**Disusun oleh:**  
+- **Nama:** Muhammad Alwi  
+- **NIM:** D082261023  
 
-## Ketergantungan (Dependencies)
-Kode inti algoritma berjalan murni pada **Python 3.x standar** menggunakan library bawaan (`collections.deque`, `time`, `random`, `statistics`). 
-Library pihak ketiga di bawah ini **hanya digunakan sebagai pembanding performa dan visualisasi grafik**, bukan sebagai logika algoritma inti:
-- `networkx`
-- `matplotlib`
+---
 
-Untuk menginstalnya, jalankan perintah:
+## 📌 Deskripsi Proyek
+Algoritma Edmonds-Karp adalah spesifikasi dari metode Ford-Fulkerson yang menggunakan pencarian Breadth-First Search (BFS) untuk menemukan *augmenting path* terpendek. Penggunaan BFS menjamin bahwa kompleksitas waktu algoritma secara matematis terikat pada $\mathcal{O}(V \cdot E^2)$, membuatnya independen dari besaran nilai kapasitas aliran pada graf.
+
+Proyek ini membuktikan kompleksitas tersebut melalui implementasi kode murni dan pengujian empiris (eksperimen).
+
+## 📂 Struktur Repositori
+- `edmonds_karp.py` : Kode sumber utama. Memuat logika BFS, iterasi algoritma Edmonds-Karp manual, skenario *test case* kecil, dan *script* eksperimen kinerja.
+- `hasil_eksperimen.png` : Gambar grafik hasil perbandingan waktu eksekusi empiris dengan estimasi teoretis.
+- `README.md` : Panduan dan dokumentasi repositori.
+
+## 🛠️ Persyaratan Lingkungan (*Prerequisites*)
+Kode inti algoritma (pencarian jalur dan kalkulasi graf sisa) berjalan murni tanpa pustaka eksternal. Namun, untuk keperluan modul eksperimen dan pembangkitan graf acak, diperlukan beberapa pustaka berikut:
+- **Python 3.8+**
+- **NetworkX** (sebagai generator graf dan pembanding validasi algoritma)
+- **Matplotlib** (sebagai visualisator data ke dalam grafik)
+
+**Langkah Instalasi Pustaka:**
+Buka terminal/Command Prompt dan jalankan:
 ```bash
 pip install networkx matplotlib
